@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:wght@700;800;900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-obsidian: #080B11;
+  --color-void: #050709;
+  --color-violet-card: #120F24;
+  --color-violet-deep: #1A1535;
+  --color-violet-mid: #2D1B69;
+  --color-purple-electric: #8A2BE2;
+  --color-purple-glow: #A855F7;
+  --color-cyan-glow: #00F0FF;
+  --color-cyan-soft: #00C4CC;
+  --color-surface: #0E1120;
+  --color-border-subtle: rgba(138, 43, 226, 0.2);
+  --color-border-cyan: rgba(0, 240, 255, 0.2);
+  --font-display: 'Exo 2', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-editorial: 'Playfair Display', serif;
+}
+
+/* Investor deck uses editorial serif headings */
+.font-display-editorial {
+  font-family: var(--font-editorial);
+}
+
+/* ── Print styles for /investors pitch deck ────────────────────── */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .print\:hidden { display: none !important; }
+
+  section {
+    page-break-after: always;
+    break-after: page;
+    min-height: 0 !important;
+    height: 210mm !important;
+    width: 297mm !important;
+    overflow: hidden !important;
+  }
+
+  section:last-of-type {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #080B11;
+  color: #E8EAF0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  scrollbar-width: none;
+  box-sizing: border-box;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.font-display {
+  font-family: 'Exo 2', sans-serif;
+}
+
+.font-mono-data {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 20px rgba(138, 43, 226, 0.4), 0 0 60px rgba(138, 43, 226, 0.15);
+}
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.4), 0 0 60px rgba(0, 240, 255, 0.15);
+}
+.glow-text-purple {
+  text-shadow: 0 0 20px rgba(138, 43, 226, 0.8), 0 0 40px rgba(138, 43, 226, 0.4);
+}
+.glow-text-cyan {
+  text-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 40px rgba(0, 240, 255, 0.4);
+}
+
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.6), rgba(0, 240, 255, 0.6));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Mesh background */
+.mesh-bg {
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 20%, rgba(138, 43, 226, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 80%, rgba(0, 240, 255, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 50% 50%, rgba(18, 15, 36, 0.6) 0%, transparent 70%),
+    #080B11;
+}
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+}
+
+/* Pulse animation */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Scan line animation */
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(400%); }
+}
+.scan-line {
+  animation: scan 3s linear infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  animation: ticker 20s linear infinite;
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from { width: 0%; }
+  to { width: var(--progress-width); }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#080B11" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Somidax - A decentralized social interactive e-commerce marketplace protocol and infrastructure AI service agent." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@somidax" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Somidax - AI-Native E-Commerce Network" />
+    <meta property="og:description" content="Turn Your Store Into an AI-Native Storefront. Decentralized social interactive e-commerce marketplace protocol." />
+    <meta property="og:url" content="https://somidax.net/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Somidax - AI-Native E-Commerce Network</title>
+    <!-- GitHub Pages SPA: restore path from ?p= redirect -->
+    <script>
+      (function() {
+        var p = window.location.search.slice(1).split('&').filter(function(s){ return s.startsWith('p=') });
+        if (p.length) {
+          var path = decodeURIComponent(p[0].split('=')[1]);
+          var rest = window.location.search.slice(1).split('&').filter(function(s){ return !s.startsWith('p=') && !s.startsWith('q=') });
+          var q = window.location.search.slice(1).split('&').filter(function(s){ return s.startsWith('q=') });
+          window.history.replaceState(null, null,
+            '/' + path + (q.length ? '?' + decodeURIComponent(q[0].split('=')[1]) : '') + (rest.length ? (q.length ? '&' : '?') + rest.join('&') : '') + window.location.hash
+          );
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

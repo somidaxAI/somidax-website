@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://somidax.net/sitemap.xml
